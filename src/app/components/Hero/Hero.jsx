@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./Hero.css"; // 👈 CSS file
+import "./Hero.css"; 
 
 export default function Home() {
   return (
@@ -25,10 +25,35 @@ export default function Home() {
               <div className="hero-content">
                 <p className="hero-badge">100% Satisfaction Guarantee</p>
 
-                <h1 className="hero-title">
-                  Learn <span className="highlight">Skills</span> From <br />
-                  Our Top Instructors
-                </h1>
+     <h1 className="hero-title">
+  Learn <span className="highlight underline-svg">Skills 
+    <svg
+      className="underline"
+      viewBox="0 0 145 25"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+    >
+      <path
+        d="M1.00016 15.2711C18.1407 8.34427 70.832 -1.93441 144.473 12.3652"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        className="underline-path"
+      />
+      <path
+        d="M26.2943 14.0041C38.9177 9.44643 77.3772 3.50055 130.227 16.1786"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        className="underline-path delay"
+      />
+    </svg>
+  </span>
+  From
+  <br />
+  Our Top Instructors
+</h1>
+
 
                 <p className="hero-description">
                   Borem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis. Borem ipsum dolor sit amet consectetur adipiscing area we followelit.
@@ -47,7 +72,7 @@ export default function Home() {
                     </svg>
                     <div className="phone-text">
                       <p className="phone-sub">Have any Question?</p>
-                      <p className="phone-number">993-00-67777</p>
+                      <p className="phone-number">0335-9765391</p>
                     </div>
                   </div>
                 </div>
