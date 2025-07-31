@@ -1,0 +1,179 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+/* Logo */
+.navbar__logo img {
+  width: 160px;
+}
+
+/* Menu */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar__menu li {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #082A5E;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s;
+  /* padding-bottom: 6px; */
+  
+  
+}
+
+.dropdown-toggle:hover {
+  color: #2563eb;
+}
+
+.dropdown-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+/* Animate dropdown */
+.dropdown {
+   position: relative;
+  
+}
+
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  position: absolute;
+  /* top: 20px; */
+  left: 0;
+  min-width: 160px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #082A5E;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  color: #2563eb;
+}
+
+/* Right Side */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #1e1e1e;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Hamburger */
+.navbar__hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ------------------- Responsive ------------------ */
+@media (max-width: 1024px) {
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    gap: 20px;
+    padding: 20px 0;
+    z-index: 998;
+  }
+
+  .navbar__menu--active {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .navbar__hamburger {
+    display: block;
+  }
+
+  .login-button {
+    display: none;
+  }
+}
