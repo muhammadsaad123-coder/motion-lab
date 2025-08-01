@@ -16,6 +16,7 @@ export default function CourseCard({
   instructor = "Eduvalt"
 }) {
   return (
+    <div style={{ all: 'unset' }}>
     <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 border border-gray-100">
       <div className="relative w-full h-48 md:h-56 lg:h-64">
         <Image
@@ -94,6 +95,7 @@ export default function CourseCard({
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
