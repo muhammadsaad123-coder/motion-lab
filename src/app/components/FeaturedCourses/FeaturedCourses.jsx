@@ -53,7 +53,7 @@ export default function FeaturedCourses() {
         <div className="mb-12">
       <div className="text-left">
   <p className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-[10px] text-sm font-medium mb-3">
-    Welcome our Property.
+    Welcome our Propertyy.
   </p>
 </div>
 
