@@ -48,7 +48,8 @@ export default function Home() {
         className="underline-path delay"
       />
     </svg>
-  </span>
+  </span>{" "}
+  
   From
   <br />
   Our Top Instructors
