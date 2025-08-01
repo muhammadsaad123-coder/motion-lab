@@ -1,5 +1,8 @@
 // components/FeaturedCourses.jsx
 'use client';
+
+import { useState } from 'react';
+
 import CourseCard from './CourseCard';
 
 const courses = [
@@ -42,23 +45,72 @@ const courses = [
     tagColor: 'bg-yellow-400',
     image: '/images/dev.jpg',
   },
+  {
+    id: 4,
+    title: 'UI/UX Design Basics for Beginners',
+    lessons: 12,
+    duration: '10h 45m',
+    students: 19,
+    rating: 4,
+    reviews: 5,
+    price: 0, // Free
+    tag: 'Design',
+    tagColor: 'bg-blue-600',
+    image: '/images/dev.jpg',
+  },
+  {
+    id: 5,
+    title: 'Mastering Digital Marketing in 2025',
+    lessons: 18,
+    duration: '20h 00m',
+    students: 54,
+    rating: 5,
+    reviews: 8,
+    price: 0, // Free
+    tag: 'Marketing',
+    tagColor: 'bg-green-600',
+    image: '/images/dev.jpg',
+  },
+  {
+    id: 6,
+    title: 'Beginner’s Guide to Graphic Design',
+    lessons: 11,
+    duration: '9h 30m',
+    students: 35,
+    rating: 4,
+    reviews: 4,
+    price: 0, // Free
+    tag: 'Graphic Design',
+    tagColor: 'bg-purple-600',
+    image: '/images/dev.jpg',
+  },
 ];
 
+
+const filterOptions = ['All', 'Business', 'Design', 'Graphic Design', 'Marketing', 'Free'];
+
 export default function FeaturedCourses() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  // Filter logic
+  const filteredCourses = courses.filter(course => {
+    if (activeFilter === 'All') return true;
+    if (activeFilter === 'Free') return course.price === 0;
+    return course.tag === activeFilter;
+  });
+
   return (
     <section className="w-full bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-12">
-      <div className="text-left">
-  <p className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-[10px] text-sm font-medium mb-3">
-    Welcome our Propertyy.
-  </p>
-</div>
+          <div className="text-left">
+            <p className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-[10px] text-sm font-medium mb-3">
+              Welcome our Propertyy.
+            </p>
+          </div>
 
-
-          
           <div className="flex flex-col lg:flex-row items-start justify-between mb-8 gap-4">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
               Our{' '}
@@ -79,36 +131,35 @@ export default function FeaturedCourses() {
               </span>{' '}
               Courses
             </h2>
-            
-            {/* Navigation Pills */}
+
+            {/* Filter Buttons */}
             <div className="flex flex-wrap items-center gap-3 text-sm">
-              <span className="bg-blue-600 text-white px-4 py-2 rounded-full font-medium">
-                New
-              </span>
-              <button className="text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                All Courses
-              </button>
-              <button className="text-gray-600 font-medium hover:text-blue-600 transition-colors">
-                Business
-              </button>
-              <button className="text-gray-600 font-medium hover:text-blue-600 transition-colors">
-                Design
-              </button>
-              <button className="text-gray-600 font-medium hover:text-blue-600 transition-colors">
-                Graphic Design
-              </button>
-              <button className="text-gray-600 font-medium hover:text-blue-600 transition-colors">
-                Marketing
-              </button>
+              {filterOptions.map(option => (
+                <button
+                  key={option}
+                  className={`px-4 py-2 rounded-full font-medium transition-colors ${
+                    activeFilter === option
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
+                  onClick={() => setActiveFilter(option)}
+                >
+                  {option}
+                </button>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Course Cards Grid */}
+        {/* Filtered Courses */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {courses.map(course => (
-            <CourseCard key={course.id} {...course} />
-          ))}
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map(course => (
+              <CourseCard key={course.id} {...course} />
+            ))
+          ) : (
+            <p className="text-center col-span-full text-gray-500">No courses found.</p>
+          )}
         </div>
       </div>
     </section>

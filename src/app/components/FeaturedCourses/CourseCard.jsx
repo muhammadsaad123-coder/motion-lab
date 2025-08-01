@@ -90,9 +90,10 @@ export default function CourseCard({
             </div>
             <span className="text-gray-600 text-sm font-medium">{instructor}</span>
           </div>
-          <div className="text-blue-600 font-bold text-lg md:text-xl">
-            ${price.toFixed(2)}
-          </div>
+         <div className="text-blue-600 font-bold text-lg md:text-xl">
+  {price === 0 ? 'Free' : `$${price.toFixed(2)}`}
+</div>
+
         </div>
       </div>
     </div>
