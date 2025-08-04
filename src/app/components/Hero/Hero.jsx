@@ -1,7 +1,15 @@
 import Image from "next/image";
 import "./Hero.css"; 
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [animateClass, setAnimateClass] = useState("");
+
+  useEffect(() => {
+    // Delay to ensure animation class applies after mount
+    setTimeout(() => setAnimateClass("underline-animate"), 100);
+  }, []);
+
   return (
     <section className="hero-section">
       {/* Background Image */}
@@ -25,8 +33,10 @@ export default function Home() {
               <div className="hero-content">
                 <p className="hero-badge">100% Satisfaction Guarantee</p>
 
-     <h1 className="hero-title">
-  Learn <span className="highlight underline-svg">Skills 
+ <h1 className="hero-title">
+  Learn{" "}
+  <span className={`highlight underline-svg ${animateClass}`}>
+    Skills
     <svg
       className="underline"
       viewBox="0 0 145 25"
@@ -49,11 +59,11 @@ export default function Home() {
       />
     </svg>
   </span>{" "}
-  
   From
   <br />
   Our Top Instructors
 </h1>
+
 
 
                 <p className="hero-description">

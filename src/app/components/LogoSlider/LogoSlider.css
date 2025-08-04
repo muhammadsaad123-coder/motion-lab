@@ -1,3 +1,64 @@
+.logo-slider-wrapper {
+  overflow: hidden;
+  background-color: white;
+  padding: 1.5rem 0;
+   max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-slider-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 10rem;
+  filter: grayscale(1);
+  transition: filter 0.3s ease;
+}
+
+.logo-item:hover {
+  filter: grayscale(0);
+}
+
+.logo-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo-item {
+    height: 3rem;
+    width: 7rem;
+    gap: 1.5rem;
+  }
+
+  .logo-slider-track {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-item {
+    height: 2.5rem;
+    width: 6rem;
+  }
+
+  .logo-slider-track {
+    gap: 1rem;
+  }
+}
+
+/* Scroll animation */
 @keyframes scroll {
   0% {
     transform: translateX(0%);
@@ -5,9 +66,4 @@
   100% {
     transform: translateX(-50%);
   }
-}
-
-.logo-slider-track {
-  animation: scroll 20s linear infinite;
-  width: max-content;
 }

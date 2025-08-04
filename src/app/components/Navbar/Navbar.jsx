@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className={`navbar ${lexend.className}`}>
       {/* Logo */}
       <div className="navbar__logo">
-        <Image src="/images/lablogo.png" alt="Motions Lab Logo" width={200} height={70} />
+        <Image src="/images/lablogo.png" alt="Motions Lab Logo" width={210} height={80} />
       </div>
 
       {/* Center Menu */}

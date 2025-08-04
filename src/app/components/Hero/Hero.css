@@ -26,62 +26,47 @@
   z-index: -10;
 }
 
-/* .with-underline {
-  position: relative;
-  display: inline-block;
-}
-.underline-gif {
-  position: relative;
-  display: inline-block;
-}
-
-.underline-gif::after {
-  content: "";
-  position: absolute;
-  bottom: -8px; 
-  left: 50%;
-  transform: translateX(-50%) scaleX(1);
-  width: 100%;
-  height: 20px;
-  background-image: url('/images/underline.gif');
-  background-repeat: no-repeat;
-  background-size: 100% auto; 
-  background-position: center;
-  pointer-events: none;
-} */
 
 .underline-svg {
   position: relative;
   display: inline-block;
-  margin-top: 4px;
+ 
 }
 
 .underline {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
+  display: block;
+  margin-top: 1px;
   width: 100%;
-  height: 30px;
+  height: 20px;
   pointer-events: none;
-  
 }
 
 .underline-path {
-  stroke: #fab123; /* Tailwind blue-600 */
+  stroke: #fab123;
   stroke-dasharray: 160;
   stroke-dashoffset: 160;
+  transition: stroke-dashoffset 1s ease;
+}
+
+/* Initial animation on load */
+.underline-animate .underline-path {
+  stroke-dashoffset: 0;
+}
+
+/* Hover animation */
+.underline-svg:hover .underline-path {
+  stroke-dashoffset: 160; /* Reset first */
   animation: draw 1s ease forwards;
 }
 
-.underline-path.delay {
-  animation-delay: 0.3s;
-}
-
+/* Redraw keyframe for hover */
 @keyframes draw {
   to {
     stroke-dashoffset: 0;
   }
 }
+
+
 
 
 
@@ -153,25 +138,28 @@
 .hero-title {
   font-size: 2rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1;
   color: #1f2937;
 }
 
 @media (min-width: 640px) {
   .hero-title {
     font-size: 2.5rem;
+    line-height: 1.1;
   }
 }
 
 @media (min-width: 768px) {
   .hero-title {
     font-size: 3rem;
+    line-height: 1.1;
   }
 }
 
 @media (min-width: 1280px) {
   .hero-title {
     font-size: 3.4rem;
+    line-height: 1.1;
   }
 }
 
@@ -201,7 +189,7 @@
 }
 
 .cta-button {
-  background-color: #2563eb;
+  background-color: #ed1c24;
   color: white;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
@@ -214,7 +202,7 @@
 }
 
 .cta-button:hover {
-  background-color: #1d4ed8;
+  background-color: #ed1c24;
 }
 
 .cta-phone {
@@ -227,7 +215,7 @@
 .phone-icon {
   width:30px;
   height: 30px;
-  color: #2563eb;
+  color: #ed1c24;
 }
 
 .phone-text .phone-sub {
