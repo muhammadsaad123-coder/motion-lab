@@ -5,6 +5,7 @@
 import Hero from"./components/Hero/Hero.jsx";
 import LogoSlider from "./components/LogoSlider/LogoSlider";
 import FeaturedCourses from "./components/FeaturedCourses/FeaturedCourses";
+import TestimonialSection from "./components/TestimonialSection/TestimonialSection.jsx"
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
         <Hero />
         <LogoSlider/>
         <FeaturedCourses/>
+        <TestimonialSection/>
        
       </main>
     </>

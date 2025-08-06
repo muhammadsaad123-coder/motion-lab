@@ -25,10 +25,21 @@ const Navbar = () => {
       <ul className={`navbar__menu ${isMenuOpen ? "navbar__menu--active" : ""}`}>
         {[
           { label: "Home", links: [{ text: "Home One", href: "/" }, { text: "Home Two", href: "/" }] },
-          { label: "Courses", links: [{ text: "All Courses", href: "/courses" }, { text: "Categories", href: "/categories" }] },
-          { label: "Pages", links: [{ text: "About Us", href: "/about" }, { text: "Our Team", href: "/team" }] },
-          { label: "Shop", links: [{ text: "Shop Main", href: "/shop" }, { text: "Cart", href: "/cart" }] },
-          { label: "Blog", links: [{ text: "Blog Posts", href: "/blog" }, { text: "Single Post", href: "/blog/single" }] },
+          
+         {
+  label: "Courses",
+  links: [
+    
+   { text: "Map Animation", href: "/#map-animation" },
+    { text: "Documentary Style Editing", href: "/#documentary-style-editing" },
+    { text: "Reels Editing", href: "/#reels-editing" },
+    { text: "YouTube Automation", href: "/#youtube-automation" },
+    { text: "Freelancing", href: "/#freelancing" }
+  ]
+},
+          { label: "Services", links: [{ text: "All Courses", href: "/courses" }, { text: "Categories", href: "/categories" }] },
+          { label: "Portfolios", links: [{ text: "Shop Main", href: "/shop" }, { text: "Cart", href: "/cart" }] },
+         
         ].map((item, idx) => (
           <li className="dropdown" key={idx}>
             <span className="dropdown-toggle">
